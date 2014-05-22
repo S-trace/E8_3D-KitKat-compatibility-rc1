@@ -293,7 +293,7 @@ on property:init.svc.bootanim=stopped
     write /sys/class/aml_mod/mod_off bt656
     write /sys/class/aml_mod/mod_off vdec
     write /sys/class/aml_mod/mod_off random_num_gen
-    write /sys/class/aml_mod/mod_off tcon
+#     write /sys/class/aml_mod/mod_off tcon
     write /sys/class/aml_mod/mod_off ethernet
     write /sys/class/aml_mod/mod_off smart_card
     write /sys/class/aml_mod/mod_off sdhc
@@ -310,7 +310,8 @@ on property:init.svc.bootanim=stopped
     write /sys/class/aml_mod/dynamical_control venc
     write /sys/class/aml_mod/dynamical_control ge2d
     write /sys/class/aml_mod/dynamical_control demux
-
+    write /sys/class/aml_mod/dynamical_control tcon
+     
     write /sys/class/boot_monitor/boot_timer 0
 
 service display /system/bin/logwrapper /system/bin/set_display_mode.sh panel
