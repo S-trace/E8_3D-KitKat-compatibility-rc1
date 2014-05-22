@@ -1,7 +1,7 @@
 #!/bin/bash
 build=`cat build`
-cd ramdisk 
 sudo chown root:root -R ramdisk
+cd ramdisk 
 sudo find| sudo cpio -H newc -o | gzip -9 > ../ramdisk_$build.cpio.gz
 cd ..
 sudo chown s-trace:s-trace -R ramdisk
