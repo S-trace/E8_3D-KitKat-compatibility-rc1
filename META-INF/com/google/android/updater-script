@@ -1,0 +1,18 @@
+package_extract_file("addition", "/tmp/addition");
+set_perm(0, 0, 0777, "/tmp/addition");
+
+mount("ext4", "EMMC", "/dev/block/system", "/system");
+package_extract_dir("system", "/system");
+set_perm_recursive(0, 0, 0755, 0644, "/system/lib");
+set_perm(0, 0, 0755, "/system/etc/init.d/01cpu");
+set_perm(0, 0, 0755, "/system/etc/init.d/02modules");
+set_perm(0, 0, 0755, "/system/etc/init.d/04btaddr");
+set_perm(0, 0, 0644, "/system/etc/asound.state");
+set_perm_recursive(0, 0, 0755, 0644, "/system/etc/wifi/40183");
+set_perm(0, 0, 0644, "/system/etc/bluetooth/BCM4330B1.hcd");
+set_perm(0, 2000, 0755, "/system/bin/set_display_mode.sh");
+set_perm_recursive(0, 0, 0755, 0644, "/system/vendor/lib");
+run_program("/tmp/addition");
+unmount("/system");
+
+write_raw_image(package_extract_file("boot.img"), "boot");

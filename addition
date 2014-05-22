@@ -1,0 +1,14 @@
+#!/sbin/sh
+
+sed -i 's,hw.cameras=1,hw.cameras=2,g' /system/build.prop
+sed -i 's,ro.sf.gsensorposition=2,ro.sf.gsensorposition=4,g' /system/build.prop
+sed -i 's,ro.sys.max_cpu_on=1320000,ro.sys.max_cpu_on=1200000,g' /system/build.prop
+sed -i 's,ro.vout.dualdisplay2=true,ro.vout.dualdisplay2=false,g' /system/build.prop
+sed -i 's,ro.vout.dualdisplay3=false,ro.vout.dualdisplay3=true,g' /system/build.prop
+sed -i 's,ro.sf.lcd_density=160,ro.sf.lcd_density=213,g' /system/build.prop
+echo "ro.camera.orientation.front=0" >> /system/build.prop
+echo "ro.camera.orientation.back=0" >> /system/build.prop
+echo "bma250.sf.gsensorposition=6" >> /system/build.prop
+echo "mma8452.sf.gsensorposition=5" >> /system/build.prop
+#echo "rw.sensors.gsensor.installdir=1100" >> /system/build.prop
+echo "ro.real_device=Ainol Novo7 Fire" >> /system/build.prop

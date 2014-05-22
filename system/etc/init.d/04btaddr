@@ -1,0 +1,14 @@
+#!/system/bin/sh
+random()
+{
+  echo `expr $RANDOM % 256`
+}
+addr()
+{
+  printf "00:22:f4:%02x:%02x:%02x\n" `random` `random` `random`
+}
+if [ -f "/data/misc/bt_addr.conf" ];then
+  exit 0
+fi
+
+echo `addr` > /data/misc/bt_addr.conf
