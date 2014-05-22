@@ -10,9 +10,9 @@ echo boot_$build.img built
 let build_next=build+1
 echo $build_next > build
 # adb reboot recovery
-cp boot_$build.img ../
+cp boot_$build.img ../boot.img
 cd ..
-zip -R NEO3DO_compat_$build.zip META-INF system addition
+zip -R NEO3DO_compat_$build.zip META-INF system addition boot.img
 cd -
 until adb push ../NEO3DO_compat_$build.zip /sdcard/; do sleep 1 ; done
 until adb push boot_$build.img /sdcard/; do sleep 1 ; done
