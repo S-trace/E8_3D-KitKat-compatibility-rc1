@@ -12,4 +12,4 @@ echo "bma250.sf.gsensorposition=6" >> /system/build.prop
 echo "mma8452.sf.gsensorposition=5" >> /system/build.prop
 #echo "rw.sensors.gsensor.installdir=1100" >> /system/build.prop
 echo "ro.real_device=Gadmei E8-3D" >> /system/build.prop
-sed -i 's persist.sys.usb.config=mtp persist.sys.usb.config=mtp,adb g' /system/build.prop
+sed -i 's persist.sys.usb.config=mtp persist.sys.usb.config=adb g' /system/build.prop
