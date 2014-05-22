@@ -289,7 +289,7 @@ on property:init.svc.bootanim=stopped
     write /sys/class/aml_mod/mod_off uart1
     write /sys/class/aml_mod/mod_off uart2
     write /sys/class/aml_mod/mod_off uart3
-    write /sys/class/aml_mod/mod_off venc
+#     write /sys/class/aml_mod/mod_off venc
     write /sys/class/aml_mod/mod_off bt656
     write /sys/class/aml_mod/mod_off vdec
     write /sys/class/aml_mod/mod_off random_num_gen
