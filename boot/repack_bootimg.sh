@@ -7,8 +7,8 @@ cd ..
 sudo chown s-trace:s-trace -R ramdisk
 ./mkbootimg --kernel boot.img-zImage --ramdisk ramdisk_CM11.gz --base 0x80008000 --pagesize 2048 -o boot_$build.img
 echo boot_$build.img built
-let build=build+1
-echo $build > build
+let build_next=build+1
+echo $build_next > build
 # adb reboot recovery
 cp boot_$build.img ../
 cd ..
