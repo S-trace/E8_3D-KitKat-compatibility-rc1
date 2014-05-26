@@ -14,3 +14,6 @@ echo "ro.camera.orientation.back=270" >> /system/build.prop
 #echo "rw.sensors.gsensor.installdir=1100" >> /system/build.prop
 echo "ro.real_device=Gadmei E8-3D" >> /system/build.prop
 sed -i 's persist.sys.usb.config=mtp persist.sys.usb.config=adb g' /system/build.prop
+
+echo "# support 3d apk" >> /system/build.prop
+echo "ro.product.build.support3d=true" >> /system/build.prop
