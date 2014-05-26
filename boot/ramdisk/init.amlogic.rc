@@ -274,6 +274,37 @@ on boot
     # sysinit is called by init.cm.rc
     #exec /system/bin/sysinit
 
+    # 3D control
+    chown system system /sys/class/twx3d/lense
+    chown system system /sys/class/twx3d/inter
+    chown system system /sys/class/twx3d/tcreg
+    chown system system /sys/class/enable3d/enable-3d
+    chown system system /sys/class/twx3d/dlight
+
+    chmod 0666  /sys/class/twx3d/lense
+    chmod 0666  /sys/class/twx3d/inter
+    chmod 0666  /sys/class/twx3d/tcreg
+    chmod 0666  /sys/class/enable3d/enable-3d
+    chmod 0666  /sys/class/twx3d/dlight
+
+    # Misc 3D stuff
+    chown media system /sys/class/ppmgr/ppmgr_3d_mode
+    chown media system /sys/class/ppmgr/viewmode
+    chown media system /sys/class/ppmgr/doublemode
+    chown media system /sys/class/ppmgr/switchmode
+    chown media system /sys/class/ppmgr/direction_3d
+    chown media system /sys/class/ppmgr/scale_down
+
+    chmod 0666 /sys/class/pmgr/ppmgr_3d_mode
+    chmod 0666 /sys/class/ppmgr/viewmode
+    chmod 0666 /sys/class/ppmgr/doublemode
+    chmod 0666 /sys/class/ppmgr/switchmode
+    chmod 0666 /sys/class/ppmgr/direction_3d
+    chmod 0666 /sys/class/ppmgr/scale_down
+    chmod 0666 /dev/amstream_sub_read
+    chmod 0666 /sys/class/ppmgr/vtarget
+
+
 on property:init.svc.bootanim=running
     write /sys/class/graphics/fb0/blank 0
     write /sys/class/graphics/fb1/blank 1
