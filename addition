@@ -17,3 +17,18 @@ sed -i 's persist.sys.usb.config=mtp persist.sys.usb.config=adb g' /system/build
 
 echo "# support 3d apk" >> /system/build.prop
 echo "ro.product.build.support3d=true" >> /system/build.prop
+
+if grep ro.omni.device /system/build.prop ; then
+  # OmniRom detected
+  mv /system/media/bootanimation_omni.zip /system/media/bootanimation.zip
+  rm /system/media/bootanimation_cm.zip
+fi
+
+if grep ro.cm.device /system/build.prop ; then
+  # CyanogenMod detected
+  mv /system/media/bootanimation_cm.zip /system/media/bootanimation.zip
+  rm /system/media/bootanimation_omni.zip
+  rm /system/app/Torch.apk # Does not work anyway
+fi
+rm /system/app/VideoPlayer.apk # Does not work anyway
+rm /system/etc/wifi/40181 # Unneeded
