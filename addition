@@ -32,3 +32,9 @@ if grep ro.cm.device /system/build.prop ; then
 fi
 rm /system/app/VideoPlayer.apk # Does not work anyway
 rm /system/etc/wifi/40181 # Unneeded
+
+# Localization
+sed -i 's persist.sys.timezone=Europe/Rome persist.sys.timezone=Europe/Moscow g' /system/build.prop
+sed -i 's persist.sys.language=en persist.sys.language=ru g' /system/build.prop
+sed -i 's persist.sys.country=US persist.sys.country=RU g' /system/build.prop
+
