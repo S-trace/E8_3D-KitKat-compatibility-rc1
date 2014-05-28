@@ -19,6 +19,8 @@ echo "# support 3d apk" >> /system/build.prop
 echo "ro.product.build.support3d=true" >> /system/build.prop
 echo "# For TriDef 3D Games" >> /system/build.prop
 echo "ro.product.build.dim=E83D-T380-GADMEIUS-NEO3DO_GADMEIUS-NEO3DO_V1.0.1.20131214" >> /system/build.prop
+# For Phereo photo viewer:
+sed -i 's ro.product.manufacturer=Asus ro.product.manufacturer=Gadmei g' /system/build.prop
 
 if grep ro.omni.device /system/build.prop ; then
   # OmniRom detected
