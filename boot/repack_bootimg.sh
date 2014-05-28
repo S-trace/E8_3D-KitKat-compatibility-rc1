@@ -17,7 +17,7 @@ cp boot_$build.img ../boot.img
 cd ..
 zip NEO3DO_compat_$build.zip META-INF system addition boot.img -r
 cd -
-until adb push ../NEO3DO_compat_$build.zip /sdcard/; do sleep 1 ; done
-until adb push boot_$build.img /sdcard/; do sleep 1 ; done
-until adb shell flash_image boot /sdcard/boot_$build.img; do sleep 1 ; done
+until adb push ../NEO3DO_compat_$build.zip /emmc/; do sleep 1 ; done
+until adb push boot_$build.img /emmc/; do sleep 1 ; done
+until adb shell flash_image boot /emmc/boot_$build.img; do sleep 1 ; done
 echo NEO3DO_compat_$build.zip: done
