@@ -1,47 +1,54 @@
 #!/sbin/sh
+set_prop(){
+  name="$1"
+  value="$2"
+  file="/system/build.prop"
+  if grep -q "^$name=" "$file"; then
+    #echo "$name is exist in $file"
+    sed -i "s#^$name=.*#$name=$value#g" "$file"
+  else
+    #echo "$name is not exist in $file"
+    echo "$name=$value" >> "$file"
+  fi
+}
 
-sed -i 's,hw.cameras=1,hw.cameras=2,g' /system/build.prop
-sed -i 's,#ro.sf.gsensorposition=2,ro.sf.gsensorposition=1,g' /system/build.prop
-sed -i 's,ro.sf.gsensorposition=2,ro.sf.gsensorposition=4,g' /system/build.prop
-sed -i 's,ro.sys.max_cpu_on=1320000,ro.sys.max_cpu_on=1200000,g' /system/build.prop
-sed -i 's,ro.vout.dualdisplay2=true,ro.vout.dualdisplay2=false,g' /system/build.prop
-sed -i 's,ro.vout.dualdisplay3=false,ro.vout.dualdisplay3=true,g' /system/build.prop
-# sed -i 's,ro.sf.lcd_density=160,ro.sf.lcd_density=213,g' /system/build.prop
-echo "ro.camera.orientation.front=90" >> /system/build.prop
-echo "ro.camera.orientation.back=270" >> /system/build.prop
-#echo "bma250.sf.gsensorposition=6" >> /system/build.prop
-#echo "mma8452.sf.gsensorposition=5" >> /system/build.prop
-#echo "rw.sensors.gsensor.installdir=1100" >> /system/build.prop
-echo "ro.real_device=Gadmei E8-3D" >> /system/build.prop
-sed -i 's persist.sys.usb.config=mtp persist.sys.usb.config=adb g' /system/build.prop
+set_prop hw.cameras 2
+set_prop ro.sf.gsensorposition 4
+set_prop ro.sys.max_cpu_on 1200000
+set_prop ro.vout.dualdisplay2 false
+set_prop ro.vout.dualdisplay3 true
+set_prop ro.camera.orientation.front 90
+set_prop ro.camera.orientation.back 270
+set_prop ro.real_device "Gadmei E8-3D"
+set_prop persist.sys.usb.config adb
+set_prop bma250.sf.gsensorposition 6
 
-# Fixes video streaming in 3DPlayer and/or Yabazam 3D
-sed -i 's rw.youtube_workaround=1 rw.youtube_workaround=0 g' /system/build.prop
+# set_prop mma8452.sf.gsensorposition 5
+# set_prop rw.sensors.gsensor.installdir 1100
+# set_prop ro.sf.lcd_density 213
 
-echo "# support 3d apk" >> /system/build.prop
-echo "ro.product.build.support3d=true" >> /system/build.prop
-echo "# For TriDef 3D Games" >> /system/build.prop
-echo "ro.product.build.dim=E83D-T380-GADMEIUS-NEO3DO_GADMEIUS-NEO3DO_V1.0.1.20131214" >> /system/build.prop
-# For Phereo photo viewer:
-sed -i 's ro.product.manufacturer=Asus ro.product.manufacturer=Gadmei g' /system/build.prop
+set_prop rw.youtube_workaround 0 # Fixes video streaming in 3DPlayer and/or Yabazam 3D
+set_prop ro.product.build.support3d true # For 3DPlayer and 3DImageView
+set_prop ro.product.build.dim E83D-T380-GADMEIUS-NEO3DO_GADMEIUS-NEO3DO_V1.0.1.20131214 # For TriDef 3D Games
+set_prop ro.product.manufacturer Gadmei # For Phereo photo viewer
 
-if grep ro.omni.device /system/build.prop ; then
+if grep -q ^ro.omni.device /system/build.prop ; then
   # OmniRom detected
   mv /system/media/bootanimation_omni.zip /system/media/bootanimation.zip
   rm /system/media/bootanimation_cm.zip
 fi
 
-if grep ro.cm.device /system/build.prop ; then
+if grep -q ^ro.cm.device /system/build.prop ; then
   # CyanogenMod detected
   mv /system/media/bootanimation_cm.zip /system/media/bootanimation.zip
   rm /system/media/bootanimation_omni.zip
   rm /system/app/Torch.apk # Does not work anyway
 fi
-rm /system/app/VideoPlayer.apk # Does not work anyway
+rm /system/app/VideoPlayer.apk # 3DPlayer is better
 rm /system/etc/wifi/40181 # Unneeded
 
 # Localization
-sed -i 's persist.sys.timezone=Europe/Rome persist.sys.timezone=Europe/Moscow g' /system/build.prop
-sed -i 's persist.sys.language=en persist.sys.language=ru g' /system/build.prop
-sed -i 's persist.sys.country=US persist.sys.country=RU g' /system/build.prop
+# set_prop persist.sys.timezone Europe/Moscow
+# set_prop persist.sys.language ru
+# set_prop persist.sys.country RU
 
