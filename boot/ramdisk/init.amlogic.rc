@@ -108,6 +108,8 @@ on boot
     chmod 0664 /sys/class/ppmgr/ppscaler
     chmod 0664 /sys/class/ppmgr/ppscaler_rect
 
+    # Set correct angle for 2D hw video decoding
+    write /sys/class/ppmgr/angle 3
 
     chown system system /sys/class/subtitle/enable
     chown system system /sys/class/subtitle/total
