@@ -13,19 +13,17 @@ set_prop(){
 }
 
 set_prop hw.cameras 2
-set_prop ro.sf.gsensorposition 4
 set_prop ro.sys.max_cpu_on 1200000
 set_prop ro.vout.dualdisplay2 false
 set_prop ro.vout.dualdisplay3 true
-set_prop ro.camera.orientation.front 90
-set_prop ro.camera.orientation.back 270
 set_prop ro.real_device "Gadmei E8-3D"
 set_prop persist.sys.usb.config adb
-set_prop bma250.sf.gsensorposition 6
 
-# set_prop mma8452.sf.gsensorposition 5
-# set_prop rw.sensors.gsensor.installdir 1100
-# set_prop ro.sf.lcd_density 213
+# For correct rotation
+set_prop ro.sf.hwrotation 270
+set_prop ro.sf.gsensorposition 3
+set_prop ro.camera.orientation.front 0
+set_prop ro.camera.orientation.back 0
 
 set_prop rw.youtube_workaround 0 # Fixes video streaming in 3DPlayer and/or Yabazam 3D
 set_prop ro.product.build.support3d true # For 3DPlayer and 3DImageView
@@ -34,14 +32,14 @@ set_prop ro.product.manufacturer Gadmei # For Phereo photo viewer
 
 if grep -q ^ro.omni.device /system/build.prop ; then
   # OmniRom detected
-  mv /system/media/bootanimation_omni.zip /system/media/bootanimation.zip
-  rm /system/media/bootanimation_cm.zip
+  mv /system/lib/libinputservice_OMNI_PATCHED.so /system/lib/libinputservice.so
+  rm /system/lib/libinputservice_CM11_PATCHED.so
 fi
 
 if grep -q ^ro.cm.device /system/build.prop ; then
   # CyanogenMod detected
-  mv /system/media/bootanimation_cm.zip /system/media/bootanimation.zip
-  rm /system/media/bootanimation_omni.zip
+  mv /system/lib/libinputservice_CM11_PATCHED.so /system/lib/libinputservice.so
+  rm /system/lib/libinputservice_OMNI_PATCHED.so
   rm /system/app/Torch.apk # Does not work anyway
 fi
 rm /system/app/VideoPlayer.apk # 3DPlayer is better
