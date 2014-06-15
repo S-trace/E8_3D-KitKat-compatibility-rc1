@@ -32,13 +32,15 @@ set_prop ro.product.manufacturer Gadmei # For Phereo photo viewer
 
 if grep -q ^ro.omni.device /system/build.prop ; then
   # OmniRom detected
-  mv /system/lib/libinputservice_OMNI_PATCHED.so /system/lib/libinputservice.so
+  mv /system/lib/libinputservice.so /system/lib/libinputservice_ORIG.so
+  cp /system/lib/libinputservice_OMNI_PATCHED.so /system/lib/libinputservice.so
   rm /system/lib/libinputservice_CM11_PATCHED.so
 fi
 
 if grep -q ^ro.cm.device /system/build.prop ; then
   # CyanogenMod detected
-  mv /system/lib/libinputservice_CM11_PATCHED.so /system/lib/libinputservice.so
+  mv /system/lib/libinputservice.so /system/lib/libinputservice_ORIG.so
+  cp /system/lib/libinputservice_CM11_PATCHED.so /system/lib/libinputservice.so
   rm /system/lib/libinputservice_OMNI_PATCHED.so
   rm /system/app/Torch.apk # Does not work anyway
 fi
