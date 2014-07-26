@@ -33,16 +33,20 @@ set_prop ro.product.manufacturer Gadmei # For Phereo photo viewer
 if grep -q ^ro.omni.device /system/build.prop ; then
   # OmniRom detected
   mv /system/lib/libinputservice.so /system/lib/libinputservice_ORIG.so
-  cp /system/lib/libinputservice_OMNI_PATCHED.so /system/lib/libinputservice.so
-  rm /system/lib/libinputservice_CM11_PATCHED.so
+  cp /system/lib/libinputservice_OMNI_4.4.4_PATCHED.so /system/lib/libinputservice.so
+  rm /system/lib/libinputservice_CM11_4.4.4_PATCHED.so
+  mv /system/framework/framework-res_OMNI_4.4.4_singleuser.apk /system/framework/framework-res.apk
+  rm /system/framework/framework-res_CM11_4.4.4_singleuser.apk
 fi
 
 if grep -q ^ro.cm.device /system/build.prop ; then
   # CyanogenMod detected
   mv /system/lib/libinputservice.so /system/lib/libinputservice_ORIG.so
-  cp /system/lib/libinputservice_CM11_PATCHED.so /system/lib/libinputservice.so
-  rm /system/lib/libinputservice_OMNI_PATCHED.so
+  cp /system/lib/libinputservice_CM11_4.4.4_PATCHED.so /system/lib/libinputservice.so
+  rm /system/lib/libinputservice_OMNI_4.4.4_PATCHED.so
   rm /system/app/Torch.apk # Does not work anyway
+  mv /system/framework/framework-res_CM11_4.4.4_singleuser.apk /system/framework/framework-res.apk
+  rm /system/framework/framework-res_OMNI_4.4.4_singleuser.apk
 fi
 rm /system/app/VideoPlayer.apk # 3DPlayer is better
 rm /system/etc/wifi/40181 # Unneeded
