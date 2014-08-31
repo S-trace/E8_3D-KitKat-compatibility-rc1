@@ -30,29 +30,40 @@ set_prop ro.product.build.support3d true # For 3DPlayer and 3DImageView
 set_prop ro.product.build.dim E83D-T380-GADMEIUS-NEO3DO_GADMEIUS-NEO3DO_V1.0.1.20131214 # For TriDef 3D Games
 set_prop ro.product.manufacturer Gadmei # For Phereo photo viewer
 
+rm /system/app/VideoPlayer.apk # 3DPlayer is better
+rm -r /system/etc/wifi/40181 # Unneeded
+
 if grep -q ^ro.omni.device /system/build.prop ; then
   # OmniRom detected
   mv /system/lib/libinputservice.so /system/lib/libinputservice_ORIG.so
   cp /system/lib/libinputservice_OMNI_4.4.4_PATCHED.so /system/lib/libinputservice.so
   rm /system/lib/libinputservice_CM11_4.4.4_PATCHED.so
-  mv /system/framework/framework-res_OMNI_4.4.4_singleuser.apk /system/framework/framework-res.apk
-  rm /system/framework/framework-res_CM11_4.4.4_singleuser.apk
 fi
 
 if grep -q ^ro.cm.device /system/build.prop ; then
   # CyanogenMod detected
+  rm /system/app/Torch.apk # Does not work anyway
   mv /system/lib/libinputservice.so /system/lib/libinputservice_ORIG.so
   cp /system/lib/libinputservice_CM11_4.4.4_PATCHED.so /system/lib/libinputservice.so
   rm /system/lib/libinputservice_OMNI_4.4.4_PATCHED.so
-  rm /system/app/Torch.apk # Does not work anyway
-  mv /system/framework/framework-res_CM11_4.4.4_singleuser.apk /system/framework/framework-res.apk
-  rm /system/framework/framework-res_OMNI_4.4.4_singleuser.apk
 fi
-rm /system/app/VideoPlayer.apk # 3DPlayer is better
-rm /system/etc/wifi/40181 # Unneeded
+
+
+# WLAN drivers are little messy
+if [ "`getprop sys.uses.ext4`" = "1" ]; then
+  # EXT4 system
+  rm /system/lib/modules/dhd_ubifs.ko
+  mv /system/lib/modules/dhd_ext4.ko /system/lib/modules/dhd.ko
+  mv /system/etc/wifi_ext4/* /system/etc/wifi/
+else
+  # UBIFS system
+  rm /system/lib/modules/dhd_ext4.ko
+  mv /system/lib/modules/dhd_ubifs.ko /system/lib/modules/dhd.ko
+  mv /system/etc/wifi_ubifs/* /system/etc/wifi/
+fi
+rm -r /system/etc/wifi_ubifs /system/etc/wifi_ext4
 
 # Localization
-# set_prop persist.sys.timezone Europe/Moscow
-# set_prop persist.sys.language ru
-# set_prop persist.sys.country RU
-
+set_prop persist.sys.timezone Europe/Moscow
+set_prop persist.sys.language ru
+set_prop persist.sys.country RU

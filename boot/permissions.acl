@@ -1,0 +1,1302 @@
+# file: boot
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::r-x
+
+# file: boot/init.environ.rc
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::---
+
+# file: boot/ueventd.rc
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: boot/sepolicy
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: boot/init.cm.rc
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::---
+
+# file: boot/ueventd.amlogic.rc
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: boot/init.trace.rc
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::---
+
+# file: boot/file_contexts
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: boot/initlogo.rle
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::---
+
+# file: boot/init.rc
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::---
+
+# file: boot/sbin
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: boot/sbin/healthd
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: boot/sbin/adbd
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: boot/init
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: boot/boot
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::r-x
+
+# file: boot/boot/mali.ko
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: boot/boot/ump.ko
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: boot/init.superuser.rc
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::---
+
+# file: boot/init.usb.rc
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::---
+
+# file: boot/property_contexts
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: boot/seapp_contexts
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: boot_EXT4_classic
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::r-x
+
+# file: boot_EXT4_classic/init.amlogic.rc
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: boot_EXT4_classic/default.prop
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: boot_EXT4_classic/fstab.amlogic
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: boot_EXT4_datamedia
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::r-x
+
+# file: boot_EXT4_datamedia/init.amlogic.rc
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: boot_EXT4_datamedia/default.prop
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: boot_EXT4_datamedia/fstab.amlogic
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: boot_UBIFS_classic
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::r-x
+
+# file: boot_UBIFS_classic/init.amlogic.rc
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::---
+
+# file: boot_UBIFS_classic/default.prop
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: boot_UBIFS_classic/fstab.amlogic
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: boot_UBIFS_datamedia
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::r-x
+
+# file: boot_UBIFS_datamedia/init.amlogic.rc
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::---
+
+# file: boot_UBIFS_datamedia/default.prop
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: boot_UBIFS_datamedia/fstab.amlogic
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::r-x
+
+# file: recovery/ueventd.rc
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/sepolicy
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::r-x
+
+# file: recovery/res/dummyfileforgit
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/portrait.xml
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/ui.xml
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/keys
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/twrp
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/fonts
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::r-x
+
+# file: recovery/res/fonts/Roboto-Condensed-30.dat
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::r-x
+
+# file: recovery/res/images/keyboard1.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/dummyfile2
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/indeterminate001.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/indeterminate002.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/slider-used.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/radio_selected.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/keyboard3.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/indeterminate004.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/home-icon.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/progress_fill.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/menu-button.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/plus-button.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/folder.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/slider.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/minus-button.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/cursor.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/slider-touch.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/progress_empty.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/keyboard4.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/indeterminate003.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/radio_empty.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/font.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/curtain.jpg
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/slideout.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/indeterminate006.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/back-icon.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/top-bar.jpg
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/checkbox_checked.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/keyboard2.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/file.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/sort-button.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/medium-button.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/checkbox_empty.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/unlock.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/res/images/indeterminate005.png
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/supersu
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::r-x
+
+# file: recovery/supersu/99SuperSUDaemon
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/supersu/Superuser.apk
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/supersu/su
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/supersu/install-recovery.sh
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/file_contexts
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/proc
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::r-x
+
+# file: recovery/license
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::r-x
+
+# file: recovery/license/openaes
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::r-x
+
+# file: recovery/license/openaes/LICENSE
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/init.rc
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/exfat-fuse
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/mkdosfs
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/pigz
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/mkexfatfs
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libminuitwrp.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/reboot
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libc.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libext2_blkid.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/healthd
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libtar.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libminzip.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libext2_com_err.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libext2fs.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libaosprecovery.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/tune2fs
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/flash_image
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libmmcutils.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/linker
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libext2_e2p.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libexfat.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libdl.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/e2fsck
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/mke2fs
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libopenaes.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libstlport.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/erase_image
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libmtdutils.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libext2_profile.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/mount.exfat
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libcutils.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libjpeg.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/dosfsck
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libminadbd.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/parted
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libz.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/teamwin
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libsparse.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/liblog.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libflashutils.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libbmlutils.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/fix_permissions.sh
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/toolbox
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/dosfslabel
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/openaes
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libext2_uuid.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libblkid.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libm.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/busybox
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/adbd
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/twrp
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libext4_utils.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libstdc++.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/libselinux.so
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sbin/dump_image
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/sys
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::r-x
+
+# file: recovery/init
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery/dev
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::r-x
+
+# file: recovery/tmp
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::r-x
+
+# file: recovery/system
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::r-x
+
+# file: recovery/system/bin
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::r-x
+
+# file: recovery/etc
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::r-x
+
+# file: recovery/etc/mke2fs.conf
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/etc/fw_env.config
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/property_contexts
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/seapp_contexts
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery/data
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::--x
+
+# file: recovery_EXT4_classic
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::r-x
+
+# file: recovery_EXT4_classic/sbin
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery_EXT4_classic/sbin/recovery
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::---
+
+# file: recovery_EXT4_classic/default.prop
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery_EXT4_classic/etc
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::r-x
+other::r-x
+
+# file: recovery_EXT4_classic/etc/twrp.fstab
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery_EXT4_datamedia
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::r-x
+
+# file: recovery_EXT4_datamedia/sbin
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::r-x
+
+# file: recovery_EXT4_datamedia/sbin/recovery
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::r-x
+
+# file: recovery_EXT4_datamedia/default.prop
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery_EXT4_datamedia/etc
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::r-x
+
+# file: recovery_EXT4_datamedia/etc/twrp.fstab
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::rw-
+other::r--
+
+# file: recovery_UBIFS_classic
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::r-x
+
+# file: recovery_UBIFS_classic/sbin
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::r-x
+
+# file: recovery_UBIFS_classic/sbin/recovery
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::r-x
+
+# file: recovery_UBIFS_classic/default.prop
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery_UBIFS_classic/etc
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::r-x
+
+# file: recovery_UBIFS_classic/etc/twrp.fstab
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::rw-
+other::r--
+
+# file: recovery_UBIFS_datamedia
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::r-x
+
+# file: recovery_UBIFS_datamedia/sbin
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::r-x
+
+# file: recovery_UBIFS_datamedia/sbin/recovery
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::r-x
+
+# file: recovery_UBIFS_datamedia/default.prop
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::r--
+other::r--
+
+# file: recovery_UBIFS_datamedia/etc
+# owner: s-trace
+# group: s-trace
+user::rwx
+group::rwx
+other::r-x
+
+# file: recovery_UBIFS_datamedia/etc/twrp.fstab
+# owner: s-trace
+# group: s-trace
+user::rw-
+group::rw-
+other::r--
+

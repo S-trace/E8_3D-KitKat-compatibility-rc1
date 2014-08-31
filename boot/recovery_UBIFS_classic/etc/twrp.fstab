@@ -1,0 +1,16 @@
+/system		ubifs	system
+/data		ubifs	userdata  flags=length=-16384
+/cache		yaffs2	cache
+/media		vfat	/dev/block/avnftli1 /dev/block/avnftli flags=display="Internal storage";storage;settingsstorage;wipeingui
+
+/sdcard		auto	/dev/block/cardblksd1	/dev/block/cardblksd	flags=display="MicroSD";storage;wipeingui;removable
+/sd-ext		auto	/dev/block/cardblksd2	flags=display="SD-EXT";backup=1;wipeingui;removable
+/usb-otg	auto	/dev/block/sda1 /dev/block/sda	flags=display="USB-OTG";storage;wipeingui;removable
+
+# Kills the U-Boot when restoring from a backup, DO NOT UNCOMMENT!
+# /bootloader	mtd	bootloader	flags=backup=1;display="U-Boot" 
+
+/logo		mtd	logo		flags=backup=1;display="Logo"
+/aml_logo	mtd	aml_logo	flags=backup=1;display="AML_logo"
+/recovery	mtd	recovery	flags=backup=1;display="Recovery"
+/boot		mtd	boot		flags=backup=1;display="Boot"

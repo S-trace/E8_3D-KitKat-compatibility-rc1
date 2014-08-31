@@ -1,18 +1,90 @@
 package_extract_file("addition", "/tmp/addition");
 set_perm(0, 0, 0777, "/tmp/addition");
 
-mount("ext4", "EMMC", "/dev/block/system", "/system");
+ifelse(
+file_getprop("/default.prop", "sys.uses.ext4") == "1",
+  (
+    ui_print("EXT4 system detected");
+    write_raw_image(package_extract_file("boot_EXT4_classic.img"), "boot");
+    mount("ext4", "EMMC", "/dev/block/system", "/system");
+  ),(
+    ui_print("UBIFS system detected");
+    write_raw_image(package_extract_file("boot_UBIFS_classic.img"), "boot");
+    mount("ubifs", "UBI", "system", "/system")
+  )
+);
+
+ifelse(
+file_getprop("/default.prop", "sys.uses.ext4") == "1",
+  (
+    ifelse(
+    file_getprop("/default.prop", "sys.uses.datamedia") == "1",
+      (
+        ui_print("Datamedia partitions layout");
+        write_raw_image(package_extract_file("boot_EXT4_datamedia.img"), "boot");
+      ),(
+        ui_print("Classic partitions layout");
+        write_raw_image(package_extract_file("boot_EXT4_classic.img"), "boot");
+        ifelse(
+        file_getprop("/system/build.prop", "ro.cm.device") == "elf2",
+          (
+            ui_print("Extracting CyanogenMod singleuser package");
+            package_extract_file("singleuser/framework-res_CM11_4.4.4_singleuser.apk", "/system/framework/framework-res.apk");
+          )
+        );
+        ifelse(
+        file_getprop("/system/build.prop", "ro.omni.device") == "elf2",
+          (
+            ui_print("Extracting OmniRom singleuser package");
+            package_extract_file("singleuser/framework-res_OMNI_4.4.4_singleuser.apk", "/system/framework/framework-res.apk");
+          )
+        );
+      )
+    );
+  ),(
+    ifelse(
+    file_getprop("/default.prop", "sys.uses.datamedia") == "1",
+      (
+        ui_print("Datamedia partitions layout");
+        write_raw_image(package_extract_file("boot_UBIFS_datamedia.img"), "boot");
+      ),(
+        ui_print("Classic partitions layout");
+        write_raw_image(package_extract_file("boot_UBIFS_classic.img"), "boot");
+        ifelse(
+        file_getprop("/system/build.prop", "ro.cm.device") == "elf2",
+          (
+            ui_print("Extracting CyanogenMod singleuser package");
+            package_extract_file("singleuser/framework-res_CM11_4.4.4_singleuser.apk", "/system/framework/framework-res.apk");
+          )
+        );
+        ifelse(
+        file_getprop("/system/build.prop", "ro.omni.device") == "elf2",
+          (
+            ui_print("Extracting OmniRom singleuser package");
+            package_extract_file("singleuser/framework-res_OMNI_4.4.4_singleuser.apk", "/system/framework/framework-res.apk");
+          )
+        );
+      )
+    );
+  )
+);
+
+ui_print("Extracting files");
 package_extract_dir("system", "/system");
+ui_print("Files extracted");
+
+ui_print("Setting permissions");
 set_perm_recursive(0, 0, 0755, 0644, "/system/lib");
 set_perm(0, 0, 0755, "/system/etc/init.d/01cpu");
 set_perm(0, 0, 0755, "/system/etc/init.d/02modules");
 set_perm(0, 0, 0755, "/system/etc/init.d/04btaddr");
-set_perm(0, 0, 0644, "/system/etc/asound.state");
 set_perm_recursive(0, 0, 0755, 0644, "/system/etc/wifi/40183");
 set_perm(0, 0, 0644, "/system/etc/bluetooth/BCM4330B1.hcd");
 set_perm(0, 2000, 0755, "/system/bin/set_display_mode.sh");
 set_perm_recursive(0, 0, 0755, 0644, "/system/vendor/lib");
+ui_print("Permissions set");
+
+ui_print("Finalizing");
 run_program("/tmp/addition");
 unmount("/system");
-
-write_raw_image(package_extract_file("boot.img"), "boot");
+ui_print("Done");
