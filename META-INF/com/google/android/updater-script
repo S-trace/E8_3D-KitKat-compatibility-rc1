@@ -1,82 +1,121 @@
-package_extract_file("addition", "/tmp/addition");
-set_perm(0, 0, 0777, "/tmp/addition");
+ui_print(" ");
+ui_print(" ");
+ui_print("Installing KitKat compatibility ZIP for Gadmei E8 3D and it's clones");
+ui_print("By S-trace (S-trace@list.ru)");
+ui_print(" ");
 
 ifelse(
 file_getprop("/default.prop", "sys.uses.ext4") == "1",
   (
-    ui_print("EXT4 system detected");
-    write_raw_image(package_extract_file("boot_EXT4_classic.img"), "boot");
+    ui_print("EXT4 system detected, mounting /system");
     mount("ext4", "EMMC", "/dev/block/system", "/system");
+    ui_print("Extracting EXT4-specific files");
+    package_extract_dir("specific/EXT4/system", "/system");
   ),(
-    ui_print("UBIFS system detected");
-    write_raw_image(package_extract_file("boot_UBIFS_classic.img"), "boot");
-    mount("ubifs", "UBI", "system", "/system")
+    ui_print("UBIFS system detected, mounting /system");
+    mount("ubifs", "UBI", "system", "/system");
+    ui_print("Extracting UBIFS-specific files");
+    package_extract_dir("specific/UBIFS/system", "/system");
+    ui_print("Files extracted");
   )
 );
 
 ifelse(
-file_getprop("/default.prop", "sys.uses.ext4") == "1",
+file_getprop("/system/build.prop", "ro.cm.device") == "elf2",
   (
+    ui_print("Extracting CyanogenMod-specific files");
+    package_extract_dir("specific/CyanogenMod/system", "/system");
+  )
+);
+
+ifelse(
+file_getprop("/system/build.prop", "ro.omni.device") == "elf2",
+  (
+    ui_print("Extracting OmniRom-specific files");
+    package_extract_dir("specific/CyanogenMod/system", "/system");
+  )
+);
+
+
+ui_print("Removing obsolete files");
+delete_recursive("/system/etc/wifi/40181");
+delete("/system/app/VideoPlayer.apk");
+delete("/system/app/Torch.apk");
+
+ifelse(
+file_getprop("/default.prop", "sys.uses.datamedia") == "1",
+  (
+    ui_print("Datamedia partitions layout");
     ifelse(
-    file_getprop("/default.prop", "sys.uses.datamedia") == "1",
+    file_getprop("/default.prop", "sys.uses.ext4") == "1",
       (
-        ui_print("Datamedia partitions layout");
         write_raw_image(package_extract_file("boot_EXT4_datamedia.img"), "boot");
       ),(
-        ui_print("Classic partitions layout");
-        write_raw_image(package_extract_file("boot_EXT4_classic.img"), "boot");
-        ifelse(
-        file_getprop("/system/build.prop", "ro.cm.device") == "elf2",
-          (
-            ui_print("Extracting CyanogenMod singleuser package");
-            package_extract_file("singleuser/framework-res_CM11_4.4.4_singleuser.apk", "/system/framework/framework-res.apk");
-          )
-        );
-        ifelse(
-        file_getprop("/system/build.prop", "ro.omni.device") == "elf2",
-          (
-            ui_print("Extracting OmniRom singleuser package");
-            package_extract_file("singleuser/framework-res_OMNI_4.4.4_singleuser.apk", "/system/framework/framework-res.apk");
-          )
-        );
+        write_raw_image(package_extract_file("boot_UBIFS_datamedia.img"), "boot");
+      )
+    );
+    ifelse(
+    file_getprop("/system/build.prop", "ro.cm.device") == "elf2",
+      (
+        ui_print("Extracting CyanogenMod datamedia framework-res.apk");
+        package_extract_file("specific/CyanogenMod/framework/framework-res_datamedia.apk", "/system/framework/framework-res.apk");
+      )
+    );
+    ifelse(
+    file_getprop("/system/build.prop", "ro.omni.device") == "elf2",
+      (
+        ui_print("Extracting OmniRom datamedia framework-res.apk");
+       package_extract_file("specific/OmniRom/framework/framework-res_datamedia.apk", "/system/framework/framework-res.apk");
       )
     );
   ),(
+    ui_print("Classic partitions layout");
     ifelse(
-    file_getprop("/default.prop", "sys.uses.datamedia") == "1",
+    file_getprop("/default.prop", "sys.uses.ext4") == "1",
       (
-        ui_print("Datamedia partitions layout");
-        write_raw_image(package_extract_file("boot_UBIFS_datamedia.img"), "boot");
+        write_raw_image(package_extract_file("boot_EXT4_classic.img"), "boot");
       ),(
-        ui_print("Classic partitions layout");
         write_raw_image(package_extract_file("boot_UBIFS_classic.img"), "boot");
-        ifelse(
-        file_getprop("/system/build.prop", "ro.cm.device") == "elf2",
-          (
-            ui_print("Extracting CyanogenMod singleuser package");
-            package_extract_file("singleuser/framework-res_CM11_4.4.4_singleuser.apk", "/system/framework/framework-res.apk");
-          )
-        );
-        ifelse(
-        file_getprop("/system/build.prop", "ro.omni.device") == "elf2",
-          (
-            ui_print("Extracting OmniRom singleuser package");
-            package_extract_file("singleuser/framework-res_OMNI_4.4.4_singleuser.apk", "/system/framework/framework-res.apk");
-          )
-        );
+      )
+    );
+    ifelse(
+    file_getprop("/system/build.prop", "ro.cm.device") == "elf2",
+      (
+        ui_print("Extracting CyanogenMod classic framework-res.apk");
+        package_extract_file("specific/CyanogenMod/framework/framework-res_classic.apk", "/system/framework/framework-res.apk");
+      )
+    );
+    ifelse(
+    file_getprop("/system/build.prop", "ro.omni.device") == "elf2",
+      (
+        ui_print("Extracting OmniRom classic framework-res.apk");
+        package_extract_file("specific/OmniRom/framework/framework-res_classic.apk", "/system/framework/framework-res.apk");
       )
     );
   )
 );
 
-ui_print("Extracting files");
+ifelse(
+file_getprop("/default.prop", "sys.uses.datamedia") == "1",
+  (
+    ui_print("Extracting Datamedia-specific files");
+    ui_print(" ");
+    package_extract_dir("specific/Datamedia/system", "/system");
+  ),(
+    ui_print(" ");
+  )
+);
+
+
+ui_print("Extracting generic compatibility files");
 package_extract_dir("system", "/system");
-ui_print("Files extracted");
+ui_print("Generic compatibility files extracted");
 
 ui_print("Setting permissions");
 set_perm_recursive(0, 0, 0755, 0644, "/system/lib");
 set_perm(0, 0, 0755, "/system/etc/init.d/01cpu");
 set_perm(0, 0, 0755, "/system/etc/init.d/02modules");
+set_perm(0, 0, 0755, "/system/etc/init.d/04btaddr");
 set_perm(0, 0, 0755, "/system/etc/init.d/04btaddr");
 set_perm_recursive(0, 0, 0755, 0644, "/system/etc/wifi/40183");
 set_perm(0, 0, 0644, "/system/etc/bluetooth/BCM4330B1.hcd");
@@ -84,7 +123,12 @@ set_perm(0, 2000, 0755, "/system/bin/set_display_mode.sh");
 set_perm_recursive(0, 0, 0755, 0644, "/system/vendor/lib");
 ui_print("Permissions set");
 
-ui_print("Finalizing");
-run_program("/tmp/addition");
+ui_print("Setting build.prop values");
+package_extract_file("build_prop_patcher.sh", "/tmp/build_prop_patcher.sh");
+set_perm(0, 0, 0777, "/tmp/build_prop_patcher.sh");
+run_program("/tmp/build_prop_patcher.sh");
+ui_print("build.prop values set");
+
+ui_print("Umounting /system");
 unmount("/system");
 ui_print("Done");
