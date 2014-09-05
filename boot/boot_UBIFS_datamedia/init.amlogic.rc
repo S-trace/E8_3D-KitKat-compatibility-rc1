@@ -34,7 +34,8 @@ on fs
     ubiattach mtd@userdata
     mount ubifs ubi1_0 /data nosuid nodev
     mount yaffs2 mtd@cache /cache nosuid nodev
-    
+    setprop ro.crypto.fuse_sdcard true
+
 on post-fs
     # For 3G Dongle
     mount usbfs none /proc/bus/usb

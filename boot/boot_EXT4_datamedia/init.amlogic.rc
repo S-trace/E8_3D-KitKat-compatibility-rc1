@@ -31,9 +31,9 @@ on fs
     setprop ro.crypto.umount_sd false
     mount ext4 /dev/block/system /system ro noatime nodiratime noauto_da_alloc
     mount ext4 /dev/block/data /data noatime nodiratime norelatime nosuid nodev noauto_da_alloc
-#    mount ext4 /dev/block/cache /cache noatime nodiratime norelatime nosuid nodev noauto_da_alloc
     mount yaffs2 mtd@cache /cache nosuid nodev
-    
+    setprop ro.crypto.fuse_sdcard true
+
 on post-fs
     # For 3G Dongle
     mount usbfs none /proc/bus/usb
