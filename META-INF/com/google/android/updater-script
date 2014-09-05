@@ -32,7 +32,7 @@ ifelse(
 file_getprop("/system/build.prop", "ro.omni.device") == "elf2",
   (
     ui_print("Extracting OmniRom-specific files");
-    package_extract_dir("specific/CyanogenMod/system", "/system");
+    package_extract_dir("specific/OmniRom/system", "/system");
   )
 );
 
@@ -99,10 +99,9 @@ ifelse(
 file_getprop("/default.prop", "sys.uses.datamedia") == "1",
   (
     ui_print("Extracting Datamedia-specific files");
-    ui_print(" ");
     package_extract_dir("specific/Datamedia/system", "/system");
   ),(
-    ui_print(" ");
+    ui_print("");
   )
 );
 
