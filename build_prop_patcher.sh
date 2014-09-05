@@ -40,3 +40,8 @@ set_prop ro.product.manufacturer Gadmei # For Phereo photo viewer
 set_prop persist.sys.timezone Europe/Moscow
 set_prop persist.sys.language ru
 set_prop persist.sys.country RU
+
+# Disable setupwizard on OmniRom
+if grep -q ro.omni.device /system/build.prop ; then
+  set_prop ro.setupwizard.mode DISABLED
+fi
