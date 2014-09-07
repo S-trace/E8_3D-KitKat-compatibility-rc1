@@ -1,0 +1,7 @@
+#!/system/bin/sh
+if ! sqlite3 /data/data/com.android.providers.settings/databases/settings.db  "select * from global where name='sys_storage_threshold_max_bytes';" |grep -q sys_storage_threshold_max_bytes ; then 
+  log -p i -t S-trace "Setting sys_storage_threshold_max_bytes to 1048576 bytes"
+  sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into global (name, value) VALUES('sys_storage_threshold_max_bytes','1048576');"
+else 
+  log -p i -t S-trace "sys_storage_threshold_max_bytes already exist in database"
+fi
