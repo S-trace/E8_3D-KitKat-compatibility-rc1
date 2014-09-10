@@ -39,6 +39,7 @@ file_getprop("/system/build.prop", "ro.omni.device") == "elf2",
 
 ui_print("Removing obsolete files");
 delete_recursive("/system/etc/wifi/40181");
+delete_recursive("/system/resource/");
 delete("/system/app/VideoPlayer.apk");
 delete("/system/app/Torch.apk");
 
@@ -119,6 +120,7 @@ set_perm(0, 0, 0755, "/system/etc/init.d/60fix_free_storage");
 set_perm_recursive(0, 0, 0755, 0644, "/system/etc/wifi/40183");
 set_perm(0, 0, 0644, "/system/etc/bluetooth/BCM4330B1.hcd");
 set_perm(0, 2000, 0755, "/system/bin/set_display_mode.sh");
+set_perm(0, 0, 0755, "/system/bin/hostapd");
 set_perm_recursive(0, 0, 0755, 0644, "/system/vendor/lib");
 ui_print("Permissions set");
 
