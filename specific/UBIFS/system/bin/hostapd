@@ -1,0 +1,4 @@
+#!/system/bin/sh
+sleep 2 
+eval `grep -E '^ssid|channel' $3`
+iwmulticall iwconfig wlan0 mode master channel $channel essid $ssid
