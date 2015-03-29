@@ -1,3 +1,3 @@
-/devices/platform/mtd/mtd9/media			auto	auto	defaults	voldmanaged=sdcard0:auto
+/devices/platform/mtd/mtd9/media			auto	auto	defaults	voldmanaged=sdcard0:auto,noemulatedsd
 /devices/platform/AMLOGIC_CARD/card_host/memorycard0	auto	auto	defaults	voldmanaged=sdcard1:auto
 /devices/lm						auto	auto	defaults	voldmanaged=usbdisk0:auto

@@ -1,2 +1,2 @@
-/devices/platform/AMLOGIC_CARD/card_host/memorycard0	auto	auto	defaults	voldmanaged=sdcard1:auto
+/devices/platform/AMLOGIC_CARD/card_host/memorycard0	auto	auto	defaults	voldmanaged=sdcard1:auto,noemulatedsd
 /devices/lm						auto	auto	defaults	voldmanaged=usbdisk0:auto

@@ -107,6 +107,28 @@ file_getprop("/default.prop", "sys.uses.datamedia") == "1",
 );
 
 
+ifelse(
+file_getprop("/default.prop", "sys.uses.ext4") == "0",
+  (
+    ifelse(
+    file_getprop("/system/build.prop", "ro.cm.device") == "elf2",
+      (
+        ui_print("Extracting CyanogenMod UBIFS fix");
+        package_extract_file("specific/CyanogenMod/framework/framework2_UBIFS.jar", "/system/framework/framework2.jar");
+      )
+    );
+    ifelse(
+    file_getprop("/system/build.prop", "ro.omni.device") == "elf2",
+      (
+        ui_print("Extracting OmniRom UBIFS fix");
+        package_extract_file("specific/OmniRom/framework/framework2_UBIFS.jar", "/system/framework/framework2.jar");
+      )
+    );
+
+  )
+);
+
+
 ui_print("Extracting generic compatibility files");
 package_extract_dir("system", "/system");
 ui_print("Generic compatibility files extracted");
